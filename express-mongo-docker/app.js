@@ -2,10 +2,10 @@ var express = require('express');
 const bodyParser = require('body-parser');
 const UserRouter = express.Router();
 const { users } = require ('./settings');
-app.use(express.json());
 
 // routes
 app = express();
+app.use(express.json());
 
 app.get('/', function (req, res) {
   res.send('Hello World!\n');
