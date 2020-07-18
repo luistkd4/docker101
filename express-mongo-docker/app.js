@@ -16,16 +16,11 @@ app.get('/', function (req, res) {
 //  newUser.save();
 //  res.send('Bob Esponja\'s user created');
 //})
-
-UserRouter.route('/create').post(function (req, res) {
-  const user = new Users(req.body);
-  user.save()
-    .then(user => {
-      res.json('User added successfully');
-    })
-    .catch(err => {
-      res.status(400).send("unable to save to database");
-    });
+app.post('/create', function(req, res) {
+  var name = req.body.name;
+  var newUser = new users({name: name});
+  newUser.save();
+  res.send('Bob Esponja\'s user created');
 });
 
 //list users
@@ -35,8 +30,8 @@ app.get('/users', function(req,res) {
     });
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 //start server
 app.listen(8080, function () {
