@@ -1,0 +1,2 @@
+#Cria um volume para armazenar aquivos temporários, evitando armazenar dados na camada de escrita
+ docker run -d --name tmptest --mount type=tmpfs,destination=/cache,tmpfs-size=1000000 busybox sleep 3600
