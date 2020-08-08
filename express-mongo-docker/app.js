@@ -14,7 +14,8 @@ app.get('/', function (req, res) {
 
 // create user
 app.post('/create', function(req, res) {
-    var newUser = new users({name: json(req.body.name)});
+    console.log(req.body.name);
+    var newUser = new users({name: req.body.name});
     newUser.save();
     res.send("New User Created");
 });
