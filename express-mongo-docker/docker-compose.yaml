@@ -19,5 +19,6 @@ services:
       - DATABASE_HOST_NAME=mongo-server
       - DATABASE_PORT=27017
       - DATABASE_NAME=mydata
+      - WAIT_HOSTS=database:27017
     ports:
       - 8080:8080
