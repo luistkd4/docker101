@@ -4,9 +4,11 @@ const UserRouter = express.Router();
 const { users } = require ('./settings');
 const { json } = require('body-parser');
 
+
 // routes
 app = express();
 app.use(express.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', function (req, res) {
   res.send('Hello World!\n');
@@ -15,6 +17,7 @@ app.get('/', function (req, res) {
 // create user
 app.post('/create', function(req, res) {
     console.log(req.body.name);
+    res.send()
     var newUser = new users({name: req.body.name});
     newUser.save();
     res.send("New User Created");
