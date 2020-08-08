@@ -2,6 +2,7 @@ var express = require('express');
 const bodyParser = require('body-parser');
 const UserRouter = express.Router();
 const { users } = require ('./settings');
+const { json } = require('body-parser');
 
 // routes
 app = express();
@@ -12,18 +13,12 @@ app.get('/', function (req, res) {
 });
 
 // create user
-//app.get('/create', function(req,res){
-//  var newUser = new users({name:'Bob Esponja'});
-//  newUser.save();
-//  res.send('Bob Esponja\'s user created');
-//})
 app.post('/create', function(req, res) {
-  var name = req.body.name;
-  console.log(res.json({requestBody: req.body.name})) 
-  //var newUser = new users({name: name});
-  //newUser.save();
-  //res.send('Bob Esponja\'s user created');
+    var newUser = new users({name: req.body.name});
+    newUser.save();
+    res("New User Created")
 });
+
 
 //list users
 app.get('/users', function(req,res) {
