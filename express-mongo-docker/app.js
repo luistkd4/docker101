@@ -19,8 +19,7 @@ app.post('/create', function(req, res) {
     console.log(req.body.name);
     res.send()
     var newUser = new users({name: req.body.name});
-    newUser.save();
-    res.send("New User Created");
+    res.send(newUser.save());
 });
 
 
