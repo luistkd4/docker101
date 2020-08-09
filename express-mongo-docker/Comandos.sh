@@ -1,7 +1,10 @@
-#Subir o ambiente
+#Instalar docker-compose:
+https://docs.docker.com/compose/install/
+
+#Subir o ambiente: 
 docker-compose up -d
 
-#Buildar novamente
+#Buildar novamente:
 docker-compose up --build -d
 
 #Adicionar usuário:
@@ -13,3 +16,6 @@ curl -X POST \
   -d '{
   "name": "Patrick"
 }'
+
+#Referência para criar arquivo compose:
+https://docs.docker.com/compose/compose-file/

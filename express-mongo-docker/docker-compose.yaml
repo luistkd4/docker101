@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 services:
   database:
     container_name: mongo-server
@@ -7,6 +7,10 @@ services:
     environment: 
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=123qwe
+    volumes:
+    - type: volume
+      source: db-volume
+      target: /data/db
 
   app:
     container_name: app
@@ -22,3 +26,6 @@ services:
       - WAIT_HOSTS=database:27017
     ports:
       - 8080:8080
+
+volumes:
+  db-volume:
