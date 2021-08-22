@@ -2,7 +2,7 @@ version: '3.8'
 services:
   database:
     container_name: mongo-server
-    image: mongo
+    image: mongo:4.4.8
     restart: always
     environment: 
       - MONGO_INITDB_ROOT_USERNAME=admin
